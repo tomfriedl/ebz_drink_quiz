@@ -2,11 +2,17 @@ import PySimpleGUI as sg
 import random
 from tkinter import font
 import tkinter
+import pyautogui
+from threading import Event
 
 root = tkinter.Tk()
 fonts = list(font.families())
 fonts.sort()
 root.destroy()
+width, height = pyautogui.size()
+w = int((width/2))
+h = int((height/2))
+
 
 dictionary = {
     'latte': {
@@ -114,31 +120,60 @@ def generate_prompt():
 
 def check_answer():
     if values['user_input'] == correct_answer:
-        response = "Correct!"
+        response = "CORRECT!"
     else:
-        response = f"INCORRECT - CORRECT ANSWER: {correct_answer}"
+        response = f"INCORRECT ——— CORRECT ANSWER: {correct_answer.upper()}"
     return response
 
 
+content = [[sg.Multiline("", key='question', disabled=True, background_color='#FFFFFF', text_color='#000000', font=('Roboto Mono Medium',12), no_scrollbar=True, autoscroll=True, border_width=0, size=(int(w*(3/4)),1), justification='c')], [sg.Input(key='user_input', font=('Roboto Mono Medium',12), border_width=0, justification='center', expand_x=True, background_color='#FFFFFF', pad=(50))], [sg.Multiline("", key='response', font=('Roboto Mono Medium',12), disabled=True, background_color='#FFFFFF', text_color='#000000', no_scrollbar=True, autoscroll=True, border_width=0, size=(int(w*(3/4)),4), justification='c')]]
 
-layout = [[sg.Text("", key='question', background_color='#FFFFFF', text_color='#000000')],
-      [sg.Input(key='user_input', do_not_clear=False, border_width=0)],
-      [sg.Text("", key='response', background_color='#FFFFFF', text_color='#000000')],
-      [sg.Button(key='submit', visible = False, bind_return_key = True)]]
+layout = [[sg.VPush(background_color='#FFFFFF')], [sg.Push(background_color='#FFFFFF'), sg.Column(layout=content, background_color='#FFFFFF', element_justification='c', vertical_alignment='top', pad=(50,50)), sg.Push(background_color='#FFFFFF')], [sg.Button(key='submit', visible = False, bind_return_key = True)], [sg.VPush(background_color='#FFFFFF')]]
 
-window = sg.Window('Ebz Drink Quiz', layout, finalize=True, margins=(100,100), element_padding=((20,20),(20,20)), background_color='#FFFFFF', font=('IBM Plex Mono',12))
+window = sg.Window('Ebz Drink Quiz', layout, finalize=True, background_color='#FFFFFF', size=(w,h))
 
 while True:  # Event Loop
+    window['question'].block_focus(block=True)
+    window['user_input'].SetFocus(force=True)
+    CHAR_DELAY = 50
     question, correct_answer, generated_drink = drink()
     prompt, correct_answer = generate_prompt()
-    window['question'].update(f"{prompt}")
-    event, values = window.read()
-    print(event, values)
+    window['user_input'].update("")
+    for c in prompt:
+        window['question'].update(c, append=True) 
+        event, values = window.read(CHAR_DELAY)
+    else:
+        event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
     if event == 'submit':
-        window['response'].update(check_answer() + '  ......  press ENTER to continue')
+        for c in '....':
+            window['response'].update(c, append=True)
+            window.refresh()
+            Event().wait(0.25)
+        window['response'].update("")
+        window.refresh()
+        Event().wait(0.75)
+        print_response = check_answer()
+        window['response'].update(print_response)
+        window.refresh()
+        Event().wait(0.5)
+        window['response'].update("")
+        window.refresh()
+        Event().wait(0.5)
+        window['response'].update(print_response)
+        window.refresh()
+        Event().wait(0.5)
+        window['response'].update("")
+        window.refresh()
+        Event().wait(0.5)
+        window['response'].update(print_response)
+        window.refresh()
+        Event().wait(0.75)
+        window['response'].update('\n \n press ENTER to continue', append=True)
         window.read()
         if event == 'submit':
             window['response'].update("")
-            continue
+            window['question'].update("")
+        else:
+            event, values = window.read()
