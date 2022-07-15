@@ -1,0 +1,116 @@
+{
+    "latte":{
+        "hot":{
+            "12oz":{
+                "prep cup":"no",
+                "shots":"1",
+                "syrup":"3",
+                "sauce":"1",
+                "honey":"0.5"},
+            "16oz":{
+                "prep cup":"no",
+                "shots":"2",
+                "syrup":"4",
+                "sauce":"1.5",
+                "honey":"1"}},
+        "cold":{
+            "12oz":{
+                "prep cup":"yes",
+                "shots":"1",
+                "syrup":"3",
+                "sauce":"1",
+                "honey":"0.5"},
+            "16oz":{
+                "prep cup":"yes",
+                "shots":"2",
+                "syrup":"4",
+                "sauce":"1.5",
+                "honey":"1"}}},
+    "chai":{
+        "hot":{
+            "12oz":{
+                "prep cup":"no",
+                "chai concentrate":"1"},
+            "16oz":{
+                "prep cup":"no",
+                "chai concentrate":"1.5"}},
+        "cold":{
+            "12oz":{
+                "prep cup":"no",
+                "chai concentrate":"1"},
+            "16oz":{
+                "prep cup":"no",
+                "chai concentrate":"1.5"}}},
+    "hot chocolate":{
+        "hot":{
+            "12oz":{
+                "prep cup":"yes",
+                "sauce":"1"},
+            "16oz":{
+                "prep cup":"yes",
+                "sauce":"1.5"}},
+        "frozen":{
+            "milk":"8oz",
+            "sauce":"2",
+            "ice":"full cup"}},
+    "americano":{
+        "hot":{
+            "12oz":{
+                "prep cup":"no",
+                "shots":"2"},
+            "16oz":{
+                "prep cup":"no",
+                "shots":"3"}},
+        "cold":{
+            "12oz":{
+                "prep cup":"no",
+                "shots":"2"},
+            "16oz":{
+                "prep cup":"no",
+                "shots":"3"}}},
+    "freezer":{
+        "mocha":{
+            "coffee":"8oz",
+            "coffee powder":"4",
+            "sauce":"2",
+            "ice":"full cup"},
+        "chai":{
+            "milk":"8oz",
+            "chai concentrate":"1.5",
+            "ice":"full cup"},
+        "coffee":{
+            "coffee":"8oz",
+            "coffee powder":"4",
+            "ice":"full cup"},
+        "orange dreamsicle":{
+            "milk":"8oz",
+            "orange dream syrup":"1.5",
+            "ice":"full cup"}},
+    "flat white":{
+        "prep cup":"no",
+        "shots":"2"},
+    "cappucino":{
+        "8oz":{
+            "shots":"1"},
+        "12oz":{
+            "shots":"2"}},
+    "cortado":{
+        "shots":"2"},
+    "machiatto":{
+        "shots":"2"},
+    "matcha latte":{
+        "hot":{
+            "12oz":{
+                "prep cup":"no",
+                "matcha powder":"1"},
+            "16oz":{
+                "prep cup":"no",
+                "matcha powder":"1.5"}},
+        "cold":{
+            "12oz":{
+                "prep cup":"yes",
+                "matcha powder":"1"},
+            "16oz":{
+                "prep cup":"yes",
+                "matcha powder":"1.5"}}}
+}

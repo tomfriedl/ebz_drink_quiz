@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
+    <script src="scripts/generate_question.js"></script>
+    <script src="scripts/check_answer.js"></script>
+  </head>
+  <body>
+
+    <p id='question'>
+    </p>
+
+    <form onsubmit="getInputValue(); return false">
+      <input id="myInput">
+    </form>
+
+    <p id='values'></p>
+
+    <div class='response'>
+    </div>
+
+    <script>
+      document.getElementById('question').innerHTML = get_question();
+    </script>
+
+  </body>
+</html>
