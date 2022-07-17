@@ -3,26 +3,24 @@
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
-    <script src="scripts/generate_question.js"></script>
-    <script src="scripts/check_answer.js"></script>
+    <script src="scripts/quiz_behavior.js"></script>
   </head>
   <body>
 
     <p id='question'>
     </p>
 
-    <form onsubmit="getInputValue(); return false">
+    <script>
+      const [question, answer_var] = get_question();
+      document.getElementById('question').innerHTML = question;
+    </script>
+
+    <form onsubmit="checkAnswer(answer_var); return false;">
       <input id="myInput">
     </form>
 
-    <p id='values'></p>
-
-    <div class='response'>
-    </div>
-
-    <script>
-      document.getElementById('question').innerHTML = get_question();
-    </script>
+    <p id='response'></p>
+    <p id='continue'></p>
 
   </body>
 </html>

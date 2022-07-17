@@ -160,6 +160,25 @@ function get_question() {
     if (question_variable == 'coffee'||question_variable == 'milk') {
         var prompt = (`How much ${question_variable} is used in a ${size} ${temp} ${drink}?`)}
     
-    return prompt
+    return [prompt, answer_variable];
 
+}
+
+function checkAnswer(answer_variable) {
+    const inputVal = document.getElementById("myInput").value;
+    if (inputVal == answer_variable) {
+        response = 'Correct!'}
+    else {
+        response = "Incorrect. The answer is ${answer_variable}."};
+
+    document.getElementById('response').innerHTML = response;
+
+    setTimeout(() => {document.getElementById('continue').innerHTML = 'press enter to continue';}, 2000);
+
+    eventTarget.addEventListener("keydown", event => {
+        if (event.isComposing || event.keyCode === 229) {
+          return;
+        }
+        
+      });
 }
