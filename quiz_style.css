@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+  font-family: IBM Plex Sans;
+  font-size: 14pt;
+}
+
+.pageContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentContainer {
+    text-align: center;
+}
+
+input {
+    border: none;
+    font-family: IBM Plex Sans;
+    font-size: 14pt;
+}
+
+input[type=text]:focus {
+    outline:none !important;
+    text-align: center;
+}

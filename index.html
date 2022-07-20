@@ -1,26 +1,34 @@
 <!DOCTYPE HTML>
 
 <html>
+
   <head>
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
-    <script src="scripts/quiz_behavior.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.19.0/core.min.js" integrity="sha512-t4NGjfaRaGCjmiTGBsiG3w8FCp8ZY7dPlwZAXfeoGPARUT/rt3OP0NpQkblSgZy/2R8vPTXiEcq/zcWIJ8NusQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/quizbehavior.js"></script>
+    <link rel="stylesheet" href="/quiz_style.css">
   </head>
+
   <body>
 
-    <p id='question'>
-    </p>
+    <div class="pageContainer">
 
-    <script>
-      const [question, answer_var] = get_question();
-      document.getElementById('question').innerHTML = question;
-    </script>
+      <div class="contentContainer">
 
-    <form onsubmit="checkAnswer(answer_var); return false;">
-      <input id="myInput">
-    </form>
+        <p id='question'></p>
 
-    <p id='response'></p>
-    <p id='continue'></p>
+        <form id='form' onsubmit="return false;">
+          <input type="text" id="myInput" autocomplete="off">
+        </form>
+
+        <p id='response'></p>
+
+        <p id='continue'></p>
+    
+      </div>
+
+    </div>
 
   </body>
+
 </html>
