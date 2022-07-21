@@ -1,8 +1,9 @@
 html,
 body {
   height: 100%;
-  font-family: IBM Plex Sans;
-  font-size: 14pt;
+  font-family: 'IBM Plex Mono';
+  font-weight: 400;
+  font-size: 18pt;
 }
 
 .pageContainer {
@@ -18,11 +19,42 @@ body {
 
 input {
     border: none;
-    font-family: IBM Plex Sans;
-    font-size: 14pt;
+    font-family: 'IBM Plex Mono';
+    font-weight: 400;
+    font-size: 18pt;
+    text-align: center;
 }
 
 input[type=text]:focus {
     outline:none !important;
     text-align: center;
+}
+
+.hot{
+    color: orange;
+    font-weight: 600;
+}
+
+.cold{
+    color: cornflowerblue;
+    font-weight: 600;
+}
+
+.size{
+    color: purple;
+    font-weight: 600;
+}
+
+.correct {
+    color: green;
+    font-weight: 600;
+}
+
+.incorrect {
+    color: firebrick;
+    font-weight: 600;
+}
+
+.question_var {
+    font-weight: 600;
 }

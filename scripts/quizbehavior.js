@@ -1,67 +1,67 @@
 const dict = {
     "latte":{
-        "hot":{
-            "12oz":{
+        "<span class='hot'>hot</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"no",
                 "shots":"1",
                 "syrup":"3",
                 "sauce":"1",
                 "honey":"0.5"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"no",
                 "shots":"2",
                 "syrup":"4",
                 "sauce":"1.5",
                 "honey":"1"}},
-        "cold":{
-            "12oz":{
+        "<span class='cold'>cold</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"yes",
                 "shots":"1",
                 "syrup":"3",
                 "sauce":"1",
                 "honey":"0.5"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"yes",
                 "shots":"2",
                 "syrup":"4",
                 "sauce":"1.5",
                 "honey":"1"}}},
     "chai":{
-        "hot":{
-            "12oz":{
+        "<span class='hot'>hot</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"no",
                 "chai concentrate":"1"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"no",
                 "chai concentrate":"1.5"}},
-        "cold":{
-            "12oz":{
+        "<span class='cold'>cold</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"no",
                 "chai concentrate":"1"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"no",
                 "chai concentrate":"1.5"}}},
     "hot chocolate":{
         "":{
-            "12oz":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"yes",
                 "sauce":"1"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"yes",
                 "sauce":"1.5"}}},
     "americano":{
-        "hot":{
-            "12oz":{
+        "<span class='hot'>hot</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"no",
                 "shots":"2"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"no",
                 "shots":"3"}},
-        "cold":{
-            "12oz":{
+        "<span class='cold'>cold</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"no",
                 "shots":"2"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"no",
                 "shots":"3"}}},
     "freezer":{
@@ -94,9 +94,9 @@ const dict = {
             "shots":"2"}}},
     "cappucino":{
         "":{
-            "8oz":{
+            "<span class='size'>8oz</span>":{
                 "shots":"1"},
-            "12oz":{
+            "<span class='size'>12oz</span>":{
                 "shots":"2"}}},
     "cortado":{
         "":{
@@ -107,18 +107,18 @@ const dict = {
             "":{
              "shots":"2"}}},
     "matcha latte":{
-        "hot":{
-            "12oz":{
+        "<span class='hot'>hot</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"no",
                 "matcha powder":"1"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"no",
                 "matcha powder":"1.5"}},
-        "cold":{
-            "12oz":{
+        "<span class='cold'>cold</span>":{
+            "<span class='size'>12oz</span>":{
                 "prep cup":"yes",
                 "matcha powder":"1"},
-            "16oz":{
+            "<span class='size'>16oz</span>":{
                 "prep cup":"yes",
                 "matcha powder":"1.5"}}}
 }
@@ -145,19 +145,19 @@ function getQuestion() {
         console.log("answer variable is", answer_variable)
 
         if (question_variable == 'prep cup') {
-            var prompt = (`Do you use a prep cup when preparing a ${size} ${temp} ${drink}?`)}
+            var prompt = (`Do you use a <span class='question_var'>prep cup</span> when preparing a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'shots') {
-            var prompt = (`How many espresso shots are in a ${size} ${temp} ${drink}?`)}
+            var prompt = (`How many <span class='question_var'>espresso shots</span> are in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'syrup' || question_variable == 'sauce'||question_variable == 'honey'||question_variable == 'chai concentrate'||question_variable == 'orange dream syrup') {
-            var prompt = (`How many pumps of ${question_variable} are in a ${size} ${temp} ${drink}?`)}
+            var prompt = (`How many pumps of <span class='question_var'>${question_variable}</span> are in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'matcha powder') {
-            var prompt = (`How many scoops of matcha powder are in a ${size} ${temp} ${drink}?`)}
+            var prompt = (`How many scoops of <span class='question_var'>matcha powder</span> are in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'coffee powder'||question_variable == 'HC powder') {
-            var prompt = (`How many clicks of ${question_variable} are in a ${size} ${temp} ${drink}?`)}
+            var prompt = (`How many clicks of <span class='question_var'>${question_variable}</span> are in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'ice') {
-            var prompt = (`How much ice should be used in a ${size} ${temp} ${drink}?`)}
+            var prompt = (`How much <span class='question_var'>ice</span> should be used in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'coffee'||question_variable == 'milk') {
-            var prompt = (`How much ${question_variable} is used in a ${size} ${temp} ${drink}?`)}
+            var prompt = (`How much <span class='question_var'>${question_variable}</span> is used in a ${size} ${temp} ${drink}?`)}
         
         console.log(`question is: ${prompt}`)
         return [prompt, answer_variable]
@@ -171,18 +171,20 @@ function checkAnswer(answer_variable) {
 
     if (user_input != null) {
         if (user_input == answer_variable) {
-            var response = "correct!";
+            var response = "<span class='correct'>correct!</correct>";
             return response;
         } else {
-            var response = `incorrect! the correct answer is ${answer_variable}`;
+            var response = `<span class='incorrect'>incorrect!</span> the correct answer is ${answer_variable}`;
             return response;
         };
     };
 }
 
 function toContinue() {
-    document.getElementById('continue').innerHTML = 'press enter to continue';
-    document.getElementById('continue').style.visibility = "visible";
+    typewriterB.deleteAll(15)
+        .start();
+    typewriterB.pauseFor(500)
+        .typeString('press enter to continue');
 }
 
 function runQuiz() {
@@ -199,17 +201,13 @@ function runQuiz() {
     
     .then(function(){
         [question, answer] = getQuestion();
-        let question_box = document.getElementById("question");
-        document.getElementById('question').innerHTML = ""
-        var typewriter = new Typewriter(question_box, {
-            delay: 10,
-            cursor: '',
-        });
-        typewriter.typeString(question).start()
+        typewriterA.deleteAll(15)
+            .start();
+        typewriterA.typeString(question)
+            .start();
         document.getElementById('response').innerHTML = "undefined"
         document.getElementById('response').style.visibility = "hidden";
-        document.getElementById('continue').innerHTML = "undefined"
-        document.getElementById('continue').style.visibility = "hidden";
+        document.getElementById('myInput').value = null;
         return answer;
     })
     
@@ -230,19 +228,18 @@ function runQuiz() {
     .then(function() {
         document.getElementById('myInput').blur();
         let response = checkAnswer(answer);
-        var typewriter = new Typewriter(document.getElementById('response'), {
-            delay: 10,
+        typewriterB = new Typewriter(document.getElementById('response'), {
+            delay: 15,
             cursor: '',
         });
-        typewriter.typeString(response).start();
+        typewriterB.typeString(response).start()
+            .pauseFor(1000);
         document.getElementById('response').style.visibility = "visible";
-        document.getElementById('myInput').value = null;
         console.log(response)
         setTimeout(() => {
             (toContinue())
           }, "1000");
     })
-
     .then(function() {
         runQuiz();
     });
@@ -250,17 +247,14 @@ function runQuiz() {
 
 
 window.onload = function() {
-    let question_box = document.getElementById("question");
-    var typewriter = new Typewriter(question_box, {
-        delay: 10,
+    typewriterA = new Typewriter(document.getElementById("question"), {
+        delay: 15,
         cursor: '',
     });
-    var ele = typewriter.pauseFor(1000)
+    typewriterA.pauseFor(1000)
         .typeString('press enter to begin').start();
-    ele.
     document.getElementById('response').innerHTML = "undefined"
     document.getElementById('response').style.visibility = "hidden";
-    document.getElementById('continue').innerHTML = "undefined"
-    document.getElementById('continue').style.visibility = "hidden";
-    runQuiz();
+    runQuiz()
+    return typewriterA;
 }
