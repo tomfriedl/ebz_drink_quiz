@@ -2,26 +2,22 @@ const dict = {
     "latte":{
         "<span class='hot'>hot</span>":{
             "<span class='size'>12oz</span>":{
-                "prep cup":"no",
                 "shots":"1",
                 "syrup":"3",
                 "sauce":"1",
                 "honey":"0.5"},
             "<span class='size'>16oz</span>":{
-                "prep cup":"no",
                 "shots":"2",
                 "syrup":"4",
                 "sauce":"1.5",
                 "honey":"1"}},
         "<span class='cold'>cold</span>":{
             "<span class='size'>12oz</span>":{
-                "prep cup":"yes",
                 "shots":"1",
                 "syrup":"3",
                 "sauce":"1",
                 "honey":"0.5"},
             "<span class='size'>16oz</span>":{
-                "prep cup":"yes",
                 "shots":"2",
                 "syrup":"4",
                 "sauce":"1.5",
@@ -44,25 +40,21 @@ const dict = {
     "hot chocolate":{
         "":{
             "<span class='size'>12oz</span>":{
-                "prep cup":"yes",
+                "prep cup":"no",
                 "sauce":"1"},
             "<span class='size'>16oz</span>":{
-                "prep cup":"yes",
+                "prep cup":"no",
                 "sauce":"1.5"}}},
     "americano":{
         "<span class='hot'>hot</span>":{
             "<span class='size'>12oz</span>":{
-                "prep cup":"no",
                 "shots":"2"},
             "<span class='size'>16oz</span>":{
-                "prep cup":"no",
                 "shots":"3"}},
         "<span class='cold'>cold</span>":{
             "<span class='size'>12oz</span>":{
-                "prep cup":"no",
                 "shots":"2"},
             "<span class='size'>16oz</span>":{
-                "prep cup":"no",
                 "shots":"3"}}},
     "freezer":{
         "":{
@@ -73,7 +65,7 @@ const dict = {
                 "ice":"full cup"},
             "chai":{
                 "milk":"8oz",
-                "chai concentrate":"1.5",
+                "chai concentrate":"2",
                 "ice":"full cup"},
             "coffee":{
                 "coffee":"8oz",
@@ -81,16 +73,16 @@ const dict = {
                 "ice":"full cup"},
             "orange dreamsicle":{
                 "milk":"8oz",
-                "orange dream syrup":"1.5",
+                "orange dreamsicle syrup":"2",
                 "ice":"full cup"},
             "hot chocolate":{
                 "milk":"8oz",
-                "sauce":"2",
+                "sauce":"3",
+                "syrup":"3",
                 "ice":"full cup"}}},
     "flat white":{
         "":{
             "":{
-            "prep cup":"no",
             "shots":"2"}}},
     "cappucino":{
         "":{
@@ -110,17 +102,11 @@ const dict = {
         "<span class='hot'>hot</span>":{
             "<span class='size'>12oz</span>":{
                 "prep cup":"no",
-                "matcha powder":"1"},
-            "<span class='size'>16oz</span>":{
-                "prep cup":"no",
-                "matcha powder":"1.5"}},
+                "matcha powder":"1"}},
         "<span class='cold'>cold</span>":{
             "<span class='size'>12oz</span>":{
                 "prep cup":"yes",
-                "matcha powder":"1"},
-            "<span class='size'>16oz</span>":{
-                "prep cup":"yes",
-                "matcha powder":"1.5"}}}
+                "matcha powder":"1"}}}
 }
 
 function getQuestion() {
@@ -171,10 +157,10 @@ function checkAnswer(answer_variable) {
 
     if (user_input != null) {
         if (user_input == answer_variable) {
-            var response = "<span class='correct'>correct!</correct>";
+            var response = "<span class='correct'>correct!</span>";
             return response;
         } else {
-            var response = `<span class='incorrect'>incorrect!</span> the correct answer is ${answer_variable}`;
+            var response = `<span class='incorrect'>incorrect!</span> the correct answer is <span class='question_var'>${answer_variable}</span>`;
             return response;
         };
     };

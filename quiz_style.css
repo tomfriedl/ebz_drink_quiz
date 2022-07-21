@@ -1,8 +1,8 @@
 html,
 body {
   height: 100%;
-  font-family: 'IBM Plex Mono';
-  font-weight: 400;
+  font-family: 'Aileron';
+  font-weight: 600;
   font-size: 18pt;
 }
 
@@ -15,11 +15,12 @@ body {
 
 .contentContainer {
     text-align: center;
+    
 }
 
 input {
     border: none;
-    font-family: 'IBM Plex Mono';
+    font-family: 'Aileron';
     font-weight: 400;
     font-size: 18pt;
     text-align: center;
@@ -31,30 +32,59 @@ input[type=text]:focus {
 }
 
 .hot{
-    color: orange;
-    font-weight: 600;
+    color: #BA4C15;
+    font-weight: 800;
 }
 
 .cold{
-    color: cornflowerblue;
-    font-weight: 600;
+    color: #166CD7;
+    font-weight: 800;
 }
 
 .size{
-    color: purple;
-    font-weight: 600;
+    color: #8256DC;
+    font-weight: 800;
 }
 
 .correct {
-    color: green;
-    font-weight: 600;
+    color: #217E3B;
+    font-weight: 800;
 }
 
 .incorrect {
-    color: firebrick;
-    font-weight: 600;
+    color: #CD2534	;
+    font-weight: 800;
 }
 
 .question_var {
-    font-weight: 600;
+    font-weight: 800;
+}
+
+
+
+
+
+
+.underline {
+    display: inline-block;
+    position: relative;
+    color: black;
+  }
+  
+.underline::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    }
+
+.underline::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
