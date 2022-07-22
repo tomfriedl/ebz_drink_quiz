@@ -33,58 +33,29 @@ input[type=text]:focus {
 
 .hot{
     color: #BA4C15;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .cold{
     color: #166CD7;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .size{
     color: #8256DC;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .correct {
     color: #217E3B;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .incorrect {
     color: #CD2534	;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .question_var {
-    font-weight: 800;
-}
-
-
-
-
-
-
-.underline {
-    display: inline-block;
-    position: relative;
-    color: black;
-  }
-  
-.underline::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #0087ca;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-    }
-
-.underline::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    font-weight: 900;
 }

@@ -219,7 +219,7 @@ function runQuiz() {
             cursor: '',
         });
         typewriterB.typeString(response).start()
-            .pauseFor(1000);
+            .pauseFor(2000);
         document.getElementById('response').style.visibility = "visible";
         console.log(response)
         setTimeout(() => {
