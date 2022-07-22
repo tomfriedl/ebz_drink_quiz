@@ -1,9 +1,9 @@
 html,
 body {
   height: 100%;
-  font-family: 'Aileron';
-  font-weight: 600;
-  font-size: 18pt;
+  font-family: 'IBM Plex Mono';
+  font-weight: 400;
+  font-size: 16pt;
 }
 
 .pageContainer {
@@ -14,15 +14,28 @@ body {
 }
 
 .contentContainer {
+    height: 50%;
+    width: 50%;
     text-align: center;
-    
+    border: 2px solid black;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2px 5px 10px rgba(128, 128, 128, 0.317);
+    animation-name: loadTransition;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+
 }
 
 input {
     border: none;
-    font-family: 'Aileron';
+    font-family: 'IBM Plex Mono';
     font-weight: 400;
-    font-size: 18pt;
+    font-size: 16pt;
     text-align: center;
 }
 
@@ -31,31 +44,40 @@ input[type=text]:focus {
     text-align: center;
 }
 
+p {
+    margin-left: 20%;
+    margin-right: 20%;
+    line-height: 150%;
+}
+
 .hot{
-    color: #BA4C15;
+    color: #EF8929;
     font-weight: 900;
 }
 
 .cold{
-    color: #166CD7;
+    color: #26A0F4;
     font-weight: 900;
 }
 
 .size{
-    color: #8256DC;
-    font-weight: 900;
-}
-
-.correct {
-    color: #217E3B;
-    font-weight: 900;
-}
-
-.incorrect {
-    color: #CD2534	;
+    color: #6E6EEF;
     font-weight: 900;
 }
 
 .question_var {
+    color: #01B8A2;
+    font-style: oblique;
     font-weight: 900;
+}
+
+.enter {
+    font-weight: 900;
+    font-style: oblique;
+}
+
+@keyframes loadTransition {
+    0% {height: 0%; width: 0%;}
+    50% {height: 0%; width: 50%;}
+    100% {height: 50%; width: 50%;}
 }

@@ -157,10 +157,10 @@ function checkAnswer(answer_variable) {
 
     if (user_input != null) {
         if (user_input == answer_variable) {
-            var response = "<span class='correct'>correct!</span>";
+            var response = "CORRECT!";
             return response;
         } else {
-            var response = `<span class='incorrect'>incorrect!</span> the correct answer is <span class='question_var'>${answer_variable}</span>`;
+            var response = `INCORRECT! The correct answer is <span style='font-weight:900'>${answer_variable}.</span>`;
             return response;
         };
     };
@@ -170,7 +170,7 @@ function toContinue() {
     typewriterB.deleteAll(15)
         .start();
     typewriterB.pauseFor(500)
-        .typeString('press enter to continue');
+        .typeString('press <span class="enter">enter</span> to continue');
 }
 
 function runQuiz() {
@@ -237,8 +237,8 @@ window.onload = function() {
         delay: 15,
         cursor: '',
     });
-    typewriterA.pauseFor(1000)
-        .typeString('press enter to begin').start();
+    typewriterA.pauseFor(3000)
+        .typeString('press <span class="enter">enter</span> to begin').start();
     document.getElementById('response').innerHTML = "undefined"
     document.getElementById('response').style.visibility = "hidden";
     runQuiz()
