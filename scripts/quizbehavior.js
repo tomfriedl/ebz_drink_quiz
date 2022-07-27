@@ -22,6 +22,25 @@ const dict = {
                 "syrup":"4",
                 "sauce":"1.5",
                 "honey":"1"}}},
+    "honey lavender latte":{
+        "<span class='hot'>hot</span>":{
+            "<span class='size'>12oz</span>":{
+                "prep cup":"no",
+                "honey":"0.5",
+                "lavender":"3"},
+            "<span class='size'>16oz</span>":{
+                "prep cup":"no",
+                "honey":"1",
+                "lavender":"4"}},
+        "<span class='cold'>cold</span>":{
+            "<span class='size'>12oz</span>":{
+                "prep cup":"yes",
+                "honey":"0.5",
+                "lavender":"3"},
+            "<span class='size'>16oz</span>":{
+                "prep cup":"yes",
+                "honey":"1",
+                "lavender":"4"}},},
     "chai":{
         "<span class='hot'>hot</span>":{
             "<span class='size'>12oz</span>":{
@@ -60,7 +79,7 @@ const dict = {
         "":{
             "mocha":{
                 "coffee":"8oz",
-                "coffee powder":"4",
+                "milk":"4oz",
                 "sauce":"2",
                 "ice":"full cup"},
             "chai":{
@@ -69,7 +88,8 @@ const dict = {
                 "ice":"full cup"},
             "coffee":{
                 "coffee":"8oz",
-                "coffee powder":"4",
+                "milk":"4oz",
+                "simple syrup":"6",
                 "ice":"full cup"},
             "orange dreamsicle":{
                 "milk":"8oz",
@@ -78,7 +98,7 @@ const dict = {
             "hot chocolate":{
                 "milk":"8oz",
                 "sauce":"3",
-                "syrup":"3",
+                "vanilla":"3",
                 "ice":"full cup"}}},
     "flat white":{
         "":{
@@ -134,12 +154,10 @@ function getQuestion() {
             var prompt = (`Do you use a <span class='question_var'>prep cup</span> when preparing a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'shots') {
             var prompt = (`How many <span class='question_var'>espresso shots</span> are in a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'syrup' || question_variable == 'sauce'||question_variable == 'honey'||question_variable == 'chai concentrate'||question_variable == 'orange dream syrup') {
+        if (question_variable == 'syrup' || question_variable == 'sauce'||question_variable == 'honey'||question_variable == 'chai concentrate'||question_variable == 'orange dreamsicle syrup'||question_variable == 'lavender'||question_variable == 'vanilla') {
             var prompt = (`How many pumps of <span class='question_var'>${question_variable}</span> are in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'matcha powder') {
             var prompt = (`How many scoops of <span class='question_var'>matcha powder</span> are in a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'coffee powder'||question_variable == 'HC powder') {
-            var prompt = (`How many clicks of <span class='question_var'>${question_variable}</span> are in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'ice') {
             var prompt = (`How much <span class='question_var'>ice</span> should be used in a ${size} ${temp} ${drink}?`)}
         if (question_variable == 'coffee'||question_variable == 'milk') {
