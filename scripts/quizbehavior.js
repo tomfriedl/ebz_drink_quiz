@@ -4,23 +4,33 @@ const dict = {
             "<span class='size'>12oz</span>":{
                 "shots":"1",
                 "syrup":"3",
-                "sauce":"1",
-                "honey":"0.5"},
+                "mocha":"1",
+                "white mocha":"1",
+                "caramel":"1",
+                "honey":"0.5",
+                "milk":"8oz"},
             "<span class='size'>16oz</span>":{
                 "shots":"2",
                 "syrup":"4",
-                "sauce":"1.5",
-                "honey":"1"}},
+                "mocha":"1.5",
+                "white mocha":"1.5",
+                "caramel":"1.5",
+                "honey":"1",
+                "milk":"10oz"}},
         "<span class='cold'>cold</span>":{
             "<span class='size'>12oz</span>":{
                 "shots":"1",
                 "syrup":"3",
-                "sauce":"1",
-                "honey":"0.5"},
+                "mocha":"1",
+                "white mocha":"1",
+                "caramel":"1",
+                "honey":"0.5",},
             "<span class='size'>16oz</span>":{
                 "shots":"2",
                 "syrup":"4",
-                "sauce":"1.5",
+                "mocha":"1.5",
+                "white mocha":"1.5",
+                "caramel":"1.5",
                 "honey":"1"}}},
     "honey lavender latte":{
         "<span class='hot'>hot</span>":{
@@ -60,10 +70,11 @@ const dict = {
         "":{
             "<span class='size'>12oz</span>":{
                 "prep cup":"no",
-                "sauce":"1"},
+                "mocha":"1"},
             "<span class='size'>16oz</span>":{
                 "prep cup":"no",
-                "sauce":"1.5"}}},
+                "mocha":"1.5"}
+            }},
     "americano":{
         "<span class='hot'>hot</span>":{
             "<span class='size'>12oz</span>":{
@@ -78,17 +89,18 @@ const dict = {
     "freezer":{
         "":{
             "mocha":{
-                "coffee":"8oz",
-                "milk":"4oz",
+                "coffee":"6oz",
+                "milk":"2oz",
                 "sauce":"2",
+                "simple syrup":"6",
                 "ice":"full cup"},
             "chai":{
                 "milk":"8oz",
                 "chai concentrate":"2",
                 "ice":"full cup"},
             "coffee":{
-                "coffee":"8oz",
-                "milk":"4oz",
+                "coffee":"6oz",
+                "milk":"2oz",
                 "simple syrup":"6",
                 "ice":"full cup"},
             "orange dreamsicle":{
@@ -103,17 +115,21 @@ const dict = {
     "flat white":{
         "":{
             "":{
+            "milk":"6oz",
             "shots":"2"}}},
     "cappucino":{
         "":{
             "<span class='size'>8oz</span>":{
-                "shots":"1"},
+                "shots":"1",
+                "milk":"4oz"},
             "<span class='size'>12oz</span>":{
-                "shots":"2"}}},
+                "shots":"2",
+                "milk":"6oz"}}},
     "cortado":{
         "":{
             "":{
-            "shots":"2"}}},
+            "shots":"2",
+            "milk":"4oz"}}},
     "machiatto":{
         "":{
             "":{
@@ -130,41 +146,41 @@ const dict = {
 }
 
 function getQuestion() {
-        var drink = _.sample(_.keys(dict))
-        console.log("drink is", drink)
-        var temps = _.propertyOf(dict)(drink)
-        console.log("temperatures are", temps)
+    var drink = _.sample(_.keys(dict))
+    console.log("drink is", drink)
+    var temps = _.propertyOf(dict)(drink)
+    console.log("temperatures are", temps)
 
-        var temp = _.sample(_.keys(temps))
-        console.log("temp is", temp)
-        var sizes = _.propertyOf(temps)(temp)
-        console.log("sizes are", sizes)
+    var temp = _.sample(_.keys(temps))
+    console.log("temp is", temp)
+    var sizes = _.propertyOf(temps)(temp)
+    console.log("sizes are", sizes)
 
-        var size = _.sample(_.keys(sizes))
-        console.log("size is", size)
-        var question_options = _.propertyOf(sizes)(size)
-        console.log("question options are", question_options)
-                
-        var question_variable = _.sample(_.keys(question_options))
-        console.log("question variable is", question_variable)
-        var answer_variable = _.propertyOf(question_options)(question_variable)
-        console.log("answer variable is", answer_variable)
+    var size = _.sample(_.keys(sizes))
+    console.log("size is", size)
+    var question_options = _.propertyOf(sizes)(size)
+    console.log("question options are", question_options)
+            
+    var question_variable = _.sample(_.keys(question_options))
+    console.log("question variable is", question_variable)
+    var answer_variable = _.propertyOf(question_options)(question_variable)
+    console.log("answer variable is", answer_variable)
 
-        if (question_variable == 'prep cup') {
-            var prompt = (`Do you use a <span class='question_var'>prep cup</span> when preparing a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'shots') {
-            var prompt = (`How many <span class='question_var'>espresso shots</span> are in a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'syrup' || question_variable == 'sauce'||question_variable == 'honey'||question_variable == 'chai concentrate'||question_variable == 'orange dreamsicle syrup'||question_variable == 'lavender'||question_variable == 'vanilla') {
-            var prompt = (`How many pumps of <span class='question_var'>${question_variable}</span> are in a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'matcha powder') {
-            var prompt = (`How many scoops of <span class='question_var'>matcha powder</span> are in a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'ice') {
-            var prompt = (`How much <span class='question_var'>ice</span> should be used in a ${size} ${temp} ${drink}?`)}
-        if (question_variable == 'coffee'||question_variable == 'milk') {
-            var prompt = (`How much <span class='question_var'>${question_variable}</span> is used in a ${size} ${temp} ${drink}?`)}
-        
-        console.log(`question is: ${prompt}`)
-        return [prompt, answer_variable]
+    if (question_variable == 'prep cup') {
+        var prompt = (`Do you use a <span class='question_var'>prep cup</span> when preparing a ${size} ${temp} ${drink}?`)}
+    if (question_variable == 'shots') {
+        var prompt = (`How many <span class='question_var'>espresso shots</span> are in a ${size} ${temp} ${drink}?`)}
+    if (question_variable == 'syrup' || question_variable == 'mocha'|| question_variable == 'white mocha'|| question_variable == 'caramel'|| question_variable == 'honey'||question_variable == 'chai concentrate'||question_variable == 'orange dreamsicle syrup'||question_variable == 'lavender'||question_variable == 'vanilla') {
+        var prompt = (`How many pumps of <span class='question_var'>${question_variable}</span> are in a ${size} ${temp} ${drink}?`)}
+    if (question_variable == 'matcha powder') {
+        var prompt = (`How many scoops of <span class='question_var'>matcha powder</span> are in a ${size} ${temp} ${drink}?`)}
+    if (question_variable == 'ice') {
+        var prompt = (`How much <span class='question_var'>ice</span> should be used in a ${size} ${temp} ${drink}?`)}
+    if (question_variable == 'coffee'||question_variable == 'milk') {
+        var prompt = (`How much <span class='question_var'>${question_variable}</span> is used in a ${size} ${temp} ${drink}?`)}
+    
+    console.log(`question is: ${prompt}`)
+    return [prompt, answer_variable]
 
 }
 
@@ -188,7 +204,7 @@ function toContinue() {
     typewriterB.deleteAll(15)
         .start();
     typewriterB.pauseFor(500)
-        .typeString('press <span class="enter">enter</span> to continue');
+        .typeString('press <span class="enter">ENTER</span> to continue');
 }
 
 function runQuiz() {
@@ -240,6 +256,7 @@ function runQuiz() {
             .pauseFor(2000);
         document.getElementById('response').style.visibility = "visible";
         console.log(response)
+        calcScore(response, right, wrong, totalQuestions);
         setTimeout(() => {
             (toContinue())
           }, "1000");
@@ -249,14 +266,44 @@ function runQuiz() {
     });
 }
 
+function calcScore(x) {
 
+    if (x == "CORRECT!") {
+        async function addRight() {
+            totalQuestions +=1
+            right += 1
+        }
+        addRight().then(
+            document.getElementById('accuracyBar').style.boxShadow = "0px 3px 10px rgba(73, 73, 73, 0.5)",
+            document.getElementById('correct').style.width = `${(right / totalQuestions)*100}%`,
+            document.getElementById('incorrect').style.width = `${(wrong / totalQuestions)*100}%`,
+            console.log(right, wrong, totalQuestions)
+            )
+    } else {
+        async function addWrong() {
+            totalQuestions += 1
+            wrong += 1
+        }
+        addWrong().then(
+        document.getElementById('accuracyBar').style.boxShadow = "0px 3px 10px rgba(73, 73, 73, 0.5)",
+        document.getElementById('correct').style.width = `${(right / totalQuestions)*100}%`,
+        document.getElementById("incorrect").style.width = `${(wrong / totalQuestions)*100}%`,
+        console.log(right, wrong, totalQuestions)
+        )
+        }
+
+}
+
+var right = 0
+var wrong = 0
+var totalQuestions = 0
 window.onload = function() {
     typewriterA = new Typewriter(document.getElementById("question"), {
         delay: 15,
         cursor: '',
     });
     typewriterA.pauseFor(3000)
-        .typeString('press <span class="enter">enter</span> to begin').start();
+        .typeString('press <span class="enter">ENTER</span> to begin').start();
     document.getElementById('response').innerHTML = "undefined"
     document.getElementById('response').style.visibility = "hidden";
     runQuiz()
