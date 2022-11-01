@@ -256,7 +256,6 @@ function runQuiz() {
             .pauseFor(2000);
         document.getElementById('response').style.visibility = "visible";
         console.log(response)
-        calcScore(response, right, wrong, totalQuestions);
         setTimeout(() => {
             (toContinue())
           }, "1000");
@@ -266,37 +265,6 @@ function runQuiz() {
     });
 }
 
-function calcScore(x) {
-
-    if (x == "CORRECT!") {
-        async function addRight() {
-            totalQuestions +=1
-            right += 1
-        }
-        addRight().then(
-            document.getElementById('accuracyBar').style.boxShadow = "0px 3px 10px rgba(73, 73, 73, 0.5)",
-            document.getElementById('correct').style.width = `${(right / totalQuestions)*100}%`,
-            document.getElementById('incorrect').style.width = `${(wrong / totalQuestions)*100}%`,
-            console.log(right, wrong, totalQuestions)
-            )
-    } else {
-        async function addWrong() {
-            totalQuestions += 1
-            wrong += 1
-        }
-        addWrong().then(
-        document.getElementById('accuracyBar').style.boxShadow = "0px 3px 10px rgba(73, 73, 73, 0.5)",
-        document.getElementById('correct').style.width = `${(right / totalQuestions)*100}%`,
-        document.getElementById("incorrect").style.width = `${(wrong / totalQuestions)*100}%`,
-        console.log(right, wrong, totalQuestions)
-        )
-        }
-
-}
-
-var right = 0
-var wrong = 0
-var totalQuestions = 0
 window.onload = function() {
     typewriterA = new Typewriter(document.getElementById("question"), {
         delay: 15,

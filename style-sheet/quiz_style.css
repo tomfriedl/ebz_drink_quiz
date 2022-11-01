@@ -14,7 +14,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
+    justify-content: center;
     align-items: center;
 }
 
@@ -26,14 +26,21 @@ body {
     border-radius: 0.5rem;
     background-color: #212121;
     display: flex;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
-    flex-direction:column;
-    box-shadow: 0px 10px 15px rgba(73, 73, 73, 0.5);
+    flex-direction: column;
+    box-shadow: 0px 10px 15px rgba(73, 73, 73, 0.25);
     animation-name: loadTransition;
     animation-delay: 1s;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
+}
+
+.text {
+    height: 75%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
 }
 
 input {
@@ -76,37 +83,6 @@ p {
     color: #01B8A2;
     font-style: oblique;
     font-weight: 900;
-}
-
-#accuracyBar {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    height: 5%;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin: 5%;
-    transition-property: box-shadow;
-    transition-duration: 0.5s;
-    transition-delay: 0s;
-}
-
-#correct {
-    background-color: #6cc644;
-    height: 100%;
-    width: 0%;
-    transition-property: width;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-}
-
-#incorrect {
-    background-color: #bd2c00;
-    height: 100%;
-    width: 0%;
-    transition-property: width;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
 }
 
 @keyframes loadTransition {
